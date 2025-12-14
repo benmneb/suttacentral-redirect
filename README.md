@@ -2,13 +2,8 @@
 
 A simple browser extension to switch between suttacentral.net and suttacentral.express, with optional auto-redirect.
 
-## Privacy & Security
-
-- **No data collection**: This extension does not collect, store, or transmit any user data
-- **No analytics**: No tracking, no telemetry, or external connections at all
-- **No third-party services**: All code runs locally in your browser
-- **Minimal permissions**: Only requests access to SuttaCentral domains
-- **Open source**: All code is auditable
+[![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/noaddajdfegpjfgpmbhcbahofgkceaan?style=for-the-badge&logo=googlechrome)](https://chromewebstore.google.com/detail/noaddajdfegpjfgpmbhcbahofgkceaan)
+[![Mozilla Add-on Version](https://img.shields.io/amo/v/suttacentral-redirect?style=for-the-badge&logo=firefox)](https://addons.mozilla.org/firefox/addon/suttacentral-redirect/)
 
 ## Features
 
@@ -16,6 +11,14 @@ A simple browser extension to switch between suttacentral.net and suttacentral.e
 - Manual toggle button to easily switch between sites
 - Preserves full URL path, query parameters, and hash fragments
 - Works on Firefox, Chrome, Edge, Brave, and other Chromium-based browsers
+
+## Private & Secure
+
+- **No data collection**: This extension does not collect, store, or transmit any user data
+- **No analytics**: No tracking, no telemetry, or external connections at all
+- **No third-party services**: All code runs locally in your browser
+- **Minimal permissions**: Only requests access to SuttaCentral domains
+- **Open source**: All code is auditable
 
 ## Usage
 
@@ -30,12 +33,12 @@ A simple browser extension to switch between suttacentral.net and suttacentral.e
 
 **Firefox Add-ons**
 
-- Visit [Firefox Add-ons Store](https://addons.mozilla.org/)
+- Visit [Firefox Add-ons Store](https://addons.mozilla.org/firefox/addon/suttacentral-redirect/)
 - Click "Add to Firefox"
 
 **Chrome Web Store**
 
-- Visit [Chrome Web Store](https://chrome.google.com/webstore/)
+- Visit [Chrome Web Store](https://chromewebstore.google.com/detail/noaddajdfegpjfgpmbhcbahofgkceaan)
 - Click "Add to Chrome"
 - Also works for Edge, Brave, Opera, and other Chromium browsers
 
