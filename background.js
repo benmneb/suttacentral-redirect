@@ -3,8 +3,7 @@ const redirectedTabs = new Set()
 
 // Listen for tab updates and redirect if auto-redirect is enabled
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
-	// Only process when navigation is committed (not just loading)
-	if (changeInfo.status !== 'complete' || !tab.url) return
+	if (changeInfo.status !== 'loading' || !changeInfo.url) return
 
 	const { autoRedirect } = await chrome.storage.local.get({
 		autoRedirect: false,
