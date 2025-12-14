@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="popup.css" />
+		<script src="popup.js" defer></script>
+	</head>
+	<body>
+		<a
+			href="https://git.sr.ht/~benmneb/suttacentral-redirect"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="about-link"
+			title="View source"
+		>
+			<svg viewBox="0 0 16 16" fill="currentColor">
+				<circle
+					cx="8"
+					cy="8"
+					r="7"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.5"
+				/>
+				<text
+					x="8"
+					y="11"
+					text-anchor="middle"
+					font-size="10"
+					font-weight="600"
+					font-family="serif"
+				>
+					i
+				</text>
+			</svg>
+		</a>
+
+		<section class="setting">
+			<h3>Auto-redirect</h3>
+			<label>
+				Redirect .net → .express automatically
+				<input type="checkbox" id="autoRedirect" />
+			</label>
+		</section>
+
+		<section class="setting">
+			<h3>Manual redirect</h3>
+			<button id="redirectBtn">Only works on SuttaCentral sites</button>
+		</section>
+	</body>
+</html>

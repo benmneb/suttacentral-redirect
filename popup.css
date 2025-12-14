@@ -1,0 +1,106 @@
+body {
+	width: 280px;
+	padding: 16px;
+	font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman,
+		Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji,
+		Segoe UI Emoji, Segoe UI Symbol;
+	margin: 0;
+	background-color: #faf9f6;
+	color: #504945;
+}
+
+.about-link {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	width: 16px;
+	height: 16px;
+	opacity: 0.4;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #888888;
+}
+
+.about-link:hover {
+	opacity: 0.8;
+}
+
+.about-link svg {
+	width: 16px;
+	height: 16px;
+}
+
+h3 {
+	margin: 0 0 12px 0;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.setting:not(.setting:last-of-type) {
+	margin-bottom: 16px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+label {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+input[type='checkbox'] {
+	margin-left: 8px;
+	cursor: pointer;
+}
+
+button {
+	width: 100%;
+	padding: 10px;
+	font-size: 13px;
+	font-weight: 500;
+	border: none;
+	border-radius: 0.2rem;
+	cursor: pointer;
+	background-color: #af3a03;
+	color: #faf9f6;
+	font-family: inherit;
+}
+
+button:hover:not(:disabled) {
+	background-color: #7c2a03;
+}
+
+button:disabled {
+	background-color: #cccccc;
+	cursor: not-allowed;
+	color: #666666;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #282828;
+		color: #d5c4a1;
+	}
+
+	.setting:not(.setting:last-of-type) {
+		border-bottom-color: #333333;
+	}
+
+	button {
+		background-color: #fabd2f;
+		color: #282828;
+	}
+
+	button:hover:not(:disabled) {
+		background-color: #d79921;
+	}
+
+	button:disabled {
+		background-color: #3a3a3a;
+		color: #888888;
+	}
+}
