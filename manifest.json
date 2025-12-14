@@ -5,6 +5,15 @@
 	"description": "Toggle between suttacentral.net and suttacentral.express",
 	"permissions": ["storage", "activeTab", "scripting"],
 	"host_permissions": ["*://suttacentral.net/*", "*://suttacentral.express/*"],
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "@suttacentral-redirect",
+			"strict_min_version": "58.0",
+			"data_collection_permissions": {
+				"required": ["none"]
+			}
+		}
+	},
 	"background": {
 		"service_worker": "background.js",
 		"scripts": ["background.js"]
