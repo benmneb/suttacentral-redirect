@@ -29,10 +29,16 @@ document.getElementById('redirectBtn').addEventListener('click', () => {
 		const currentUrl = tab.url
 		let newUrl
 
-		if (currentUrl.includes('suttacentral.net')) {
-			newUrl = currentUrl.replace('suttacentral.net', 'suttacentral.express')
-		} else if (currentUrl.includes('suttacentral.express')) {
-			newUrl = currentUrl.replace('suttacentral.express', 'suttacentral.net')
+		if (currentUrl.includes('://suttacentral.net')) {
+			newUrl = currentUrl.replace(
+				'://suttacentral.net',
+				'://suttacentral.express'
+			)
+		} else if (currentUrl.includes('://suttacentral.express')) {
+			newUrl = currentUrl.replace(
+				'://suttacentral.express',
+				'://suttacentral.net'
+			)
 		}
 
 		if (newUrl) {

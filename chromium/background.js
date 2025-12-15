@@ -11,14 +11,17 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
 	if (!autoRedirect) return
 
-	if (tab.url.includes('suttacentral.net')) {
+	if (tab.url.includes('://suttacentral.net')) {
 		// Prevent loops
 		if (redirectedTabs.has(tabId)) {
 			redirectedTabs.delete(tabId)
 			return
 		}
 
-		const newUrl = tab.url.replace('suttacentral.net', 'suttacentral.express')
+		const newUrl = tab.url.replace(
+			'://suttacentral.net',
+			'://suttacentral.express'
+		)
 		redirectedTabs.add(tabId)
 		chrome.tabs.update(tabId, { url: newUrl })
 
