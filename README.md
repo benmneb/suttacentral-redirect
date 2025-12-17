@@ -1,3 +1,7 @@
+[![SourceHut](https://img.shields.io/badge/-SourceHut-212529?logo=sourcehut&style=flat-square)](https://git.sr.ht/~benmneb/suttacentral-redirect)
+[![Codeberg](https://img.shields.io/badge/-Codeberg-4793cc.svg?logo=codeberg&logoColor=white&style=flat-square)](https://codeberg.org/benmneb/suttacentral-redirect)
+[![GitHub](https://img.shields.io/badge/-GitHub-010409.svg?logo=github&style=flat-square)](https://github.com/benmneb/suttacentral-redirect)
+
 # SuttaCentral Redirect
 
 A simple browser extension to switch between suttacentral.net and suttacentral.express, with optional auto-redirect.
