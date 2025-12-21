@@ -1,41 +1,34 @@
-// Track tabs already redirected to prevent loops
-const redirectedTabs = new Set()
-
-// Listen for tab updates and redirect if auto-redirect is enabled
-chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
-	if (changeInfo.status !== 'loading' || !changeInfo.url) return
-
+// Enable/disable the redirect ruleset based on storage
+async function updateRedirectRule() {
 	const { autoRedirect } = await chrome.storage.local.get({
 		autoRedirect: false,
 	})
 
-	if (!autoRedirect) return
+	if (autoRedirect) {
+		await chrome.declarativeNetRequest.updateEnabledRulesets({
+			enableRulesetIds: ['redirect_rules'],
+		})
+	} else {
+		await chrome.declarativeNetRequest.updateEnabledRulesets({
+			disableRulesetIds: ['redirect_rules'],
+		})
+	}
+}
 
-	if (tab.url.includes('://suttacentral.net')) {
-		// Prevent loops
-		if (redirectedTabs.has(tabId)) {
-			redirectedTabs.delete(tabId)
-			return
-		}
-
-		const newUrl = tab.url.replace(
-			'://suttacentral.net',
-			'://suttacentral.express'
-		)
-		redirectedTabs.add(tabId)
-		chrome.tabs.update(tabId, { url: newUrl })
-
-		// Clean up tracking after a delay
-		setTimeout(() => redirectedTabs.delete(tabId), 2000)
+// Listen for storage changes (when user toggles checkbox)
+chrome.storage.onChanged.addListener((changes, area) => {
+	if (area === 'local' && changes.autoRedirect) {
+		updateRedirectRule()
 	}
 })
 
-// Clean up when tabs are closed
-chrome.tabs.onRemoved.addListener((tabId) => {
-	redirectedTabs.delete(tabId)
-})
-
-// Initialize storage with default value
+// Initialize on install
 chrome.runtime.onInstalled.addListener(() => {
 	chrome.storage.local.set({ autoRedirect: false })
+	updateRedirectRule()
+})
+
+// Sync ruleset state on startup
+chrome.runtime.onStartup.addListener(() => {
+	updateRedirectRule()
 })

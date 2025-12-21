@@ -27,7 +27,7 @@ A simple browser extension to switch between suttacentral.net and suttacentral.e
 ## Usage
 
 1. Click the extension icon in your browser toolbar
-2. Check "Redirect .net → .express automatically" to enable auto-redirect
+2. Check "Auto-redirect .net → .express" box to enable auto-redirect
 3. Use "Switch to .express" or "Switch to .net" button for manual redirects
 4. The button is only enabled when on a SuttaCentral site
 
@@ -35,16 +35,17 @@ A simple browser extension to switch between suttacentral.net and suttacentral.e
 
 ### From Add-on Stores
 
-**Firefox Add-ons**
-
-- Visit [Firefox Add-ons Store](https://addons.mozilla.org/firefox/addon/suttacentral-redirect/)
-- Click "Add to Firefox"
-
-**Chrome Web Store**
+#### Chrome Web Store
 
 - Visit [Chrome Web Store](https://chromewebstore.google.com/detail/noaddajdfegpjfgpmbhcbahofgkceaan)
 - Click "Add to Chrome"
 - Also works for Edge, Brave, Opera, and other Chromium browsers
+
+#### Firefox Add-ons
+
+- Visit [Firefox Add-ons Store](https://addons.mozilla.org/firefox/addon/suttacentral-redirect/)
+- Click "Add to Firefox"
+- For auto-redirect, grant site access: click the extension icon → "Read and change data" → "Always allow on suttacentral.net"
 
 ### Manual Installation (Development)
 
@@ -54,14 +55,14 @@ A simple browser extension to switch between suttacentral.net and suttacentral.e
 1. Open `chrome://extensions/`
 1. Enable "Developer mode" (toggle in top-right)
 1. Click "Load unpacked"
-1. Select the extension folder
+1. Select the `/chromium` folder
 
 #### Firefox
 
 1. Download or clone this repository
 1. Open `about:debugging#/runtime/this-firefox`
 1. Click "Load Temporary Add-on"
-1. Select `manifest.json` from the extension folder
+1. Select `manifest.json` from the `/gecko` folder
 
 **Note**: Temporary add-ons in Firefox are removed when you close the browser. For permanent installation, you need to either:
 

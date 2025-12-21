@@ -1,10 +1,19 @@
 {
 	"manifest_version": 3,
 	"name": "SuttaCentral Redirect",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "Toggle between suttacentral.net and suttacentral.express",
-	"permissions": ["storage", "activeTab", "scripting"],
+	"permissions": ["storage", "activeTab", "declarativeNetRequest"],
 	"host_permissions": ["*://suttacentral.net/*", "*://suttacentral.express/*"],
+	"declarative_net_request": {
+		"rule_resources": [
+			{
+				"id": "redirect_rules",
+				"enabled": false,
+				"path": "rules.json"
+			}
+		]
+	},
 	"browser_specific_settings": {
 		"gecko": {
 			"id": "@suttacentral-redirect",
