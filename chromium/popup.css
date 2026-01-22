@@ -1,12 +1,47 @@
+:root {
+	color-scheme: light dark;
+
+	/* Base colors (needed for semantic variables below) */
+	--bg: light-dark(#fbf1c7, #282828);
+	--bg-soft: light-dark(#f2e5bc, #32302f);
+	--fg: light-dark(#282828, #fbf1c7);
+	--fg-alt-2: light-dark(#504945, #d5c4a1);
+	--fg-alt-4: light-dark(#7c6f64, #a89984);
+	--yellow: light-dark(#b57614, #fabd2f);
+	--orange: light-dark(#af3a03, #fe8019);
+	--yellow-dim: #d79921;
+	--orange-alt: #7c2a03;
+	--offwhite: #faf9f6;
+
+	/* Use these tho */
+	--background-color: light-dark(var(--offwhite), var(--bg));
+	--background-color-secondary: var(--bg-soft);
+	--text-color: var(--fg-alt-2);
+	--text-color-secondary: var(--fg-alt-4);
+	--headings-color: var(--fg);
+	--primary-color: light-dark(var(--orange), var(--yellow));
+	--primary-color-alt: light-dark(var(--orange-alt), var(--yellow-dim));
+}
+
 body {
-	width: 280px;
-	padding: 16px;
-	font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman,
-		Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji,
-		Segoe UI Emoji, Segoe UI Symbol;
+	width: 220px;
+	min-width: fit-content;
+	padding: 1rem;
+	font-family:
+		Iowan Old Style,
+		Apple Garamond,
+		Baskerville,
+		Times New Roman,
+		Droid Serif,
+		Times,
+		Source Serif Pro,
+		serif,
+		Apple Color Emoji,
+		Segoe UI Emoji,
+		Segoe UI Symbol;
 	margin: 0;
-	background-color: #faf9f6;
-	color: #504945;
+	background-color: var(--background-color);
+	color: var(--text-color);
 }
 
 .about-link {
@@ -20,86 +55,89 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: #888888;
+	color: var(--text-color-secondary);
 }
 
 .about-link:hover {
 	opacity: 0.8;
 }
 
-.about-link svg {
+svg {
 	width: 16px;
 	height: 16px;
 }
 
-h3 {
-	margin: 0 0 12px 0;
-	font-size: 14px;
+button svg {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+header {
+	display: flex;
+	align-items: center;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	margin-left: 0.3rem;
+	font-size: 1rem;
 	font-weight: 600;
+	color: var(--headings-color);
+}
+
+.setting {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.setting div {
+	display: flex;
+	align-items: center;
+}
+
+#refresh-btn svg {
+	width: 1.2rem;
+	height: 1.2rem;
 }
 
 .setting:not(.setting:last-of-type) {
-	margin-bottom: 16px;
-	padding-bottom: 16px;
-	border-bottom: 1px solid #e0e0e0;
+	margin: 1rem 0;
+}
+
+label[for='auto-redirect'] {
+	flex-grow: 1;
 }
 
 label {
 	display: flex;
 	align-items: center;
 	cursor: pointer;
-	font-size: 13px;
+	font-size: 0.8rem;
 }
 
 input[type='checkbox'] {
 	margin-right: 8px;
 	cursor: pointer;
+	accent-color: var(--primary-color);
 }
 
 button {
-	width: 100%;
-	padding: 10px;
-	font-size: 13px;
-	font-weight: 500;
 	border: none;
-	border-radius: 0.2rem;
 	cursor: pointer;
-	background-color: #af3a03;
-	color: #faf9f6;
+	background: none;
+	color: var(--primary-color);
 	font-family: inherit;
 }
 
 button:hover:not(:disabled) {
-	background-color: #7c2a03;
+	color: var(--primary-color-alt);
 }
 
 button:disabled {
-	background-color: #cccccc;
 	cursor: not-allowed;
-	color: #666666;
-}
-
-@media (prefers-color-scheme: dark) {
-	body {
-		background-color: #282828;
-		color: #d5c4a1;
-	}
-
-	.setting:not(.setting:last-of-type) {
-		border-bottom-color: #333333;
-	}
-
-	button {
-		background-color: #fabd2f;
-		color: #282828;
-	}
-
-	button:hover:not(:disabled) {
-		background-color: #d79921;
-	}
-
-	button:disabled {
-		background-color: #3a3a3a;
-		color: #888888;
-	}
+	color: var(--text-color-secondary);
+	opacity: 0.5;
 }

@@ -4,15 +4,15 @@
 
 # SuttaCentral Redirect
 
-A simple browser extension to switch between suttacentral.net and suttacentral.express, with optional auto-redirect.
+A simple browser extension to switch between `suttacentral.net` and `suttacentral.now` or `suttacentral.express` — with optional auto-redirect.
 
 [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/noaddajdfegpjfgpmbhcbahofgkceaan?style=for-the-badge&logo=googlechrome)](https://chromewebstore.google.com/detail/noaddajdfegpjfgpmbhcbahofgkceaan)
 [![Mozilla Add-on Version](https://img.shields.io/amo/v/suttacentral-redirect?style=for-the-badge&logo=firefox)](https://addons.mozilla.org/firefox/addon/suttacentral-redirect/)
 
 ## Features
 
-- Auto-redirect from .net to .express (optional, disabled by default)
-- Manual toggle button to easily switch between sites
+- Auto-redirect from `.net` to `.now` or `.express`
+- Manual button to easily switch back to `.net`
 - Preserves full URL path, query parameters, and hash fragments
 - Works on Firefox, Chrome, Edge, Brave, and other Chromium-based browsers
 
@@ -27,9 +27,9 @@ A simple browser extension to switch between suttacentral.net and suttacentral.e
 ## Usage
 
 1. Click the extension icon in your browser toolbar
-2. Check "Auto-redirect .net → .express" box to enable auto-redirect
-3. Use "Switch to .express" or "Switch to .net" button for manual redirects
-4. The button is only enabled when on a SuttaCentral site
+1. Select the alternate frontend you like to use: `.now` or `.express`
+1. Use the 🔁 refresh button for manual redirects
+1. Check "Auto-redirect from .net" box to enable auto-redirects
 
 ## Installation
 
