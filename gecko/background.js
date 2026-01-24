@@ -4,13 +4,13 @@ async function updateRedirectRule() {
 		preferredFrontEnd: '.now',
 	})
 
-	// Remove existing rule first
+	// Remove existing rules first
 	await chrome.declarativeNetRequest.updateDynamicRules({
-		removeRuleIds: [1],
+		removeRuleIds: [1, 2],
 	})
 
-	// Only add rule if auto-redirect is enabled AND not targeting .net
-	if (autoRedirect && preferredFrontEnd !== '.net') {
+	// Only add rules if auto-redirect is enabled
+	if (autoRedirect) {
 		await chrome.declarativeNetRequest.updateDynamicRules({
 			addRules: [
 				{
@@ -26,6 +26,17 @@ async function updateRedirectRule() {
 					},
 					condition: {
 						urlFilter: '||suttacentral.net',
+						resourceTypes: ['main_frame'],
+					},
+				},
+				{
+					id: 2,
+					priority: 2,
+					action: {
+						type: 'allow',
+					},
+					condition: {
+						urlFilter: '||suttacentral.net/api/',
 						resourceTypes: ['main_frame'],
 					},
 				},

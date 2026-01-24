@@ -5,6 +5,10 @@ const relevantDomains = [
 ]
 const altFrontends = ['suttacentral.now', 'suttacentral.express']
 
+function isApiRoute(url) {
+	return url.hostname === 'suttacentral.net' && url.pathname.startsWith('/api/')
+}
+
 chrome.storage.local.get(
 	{ autoRedirect: true, preferredFrontEnd: '.now' },
 	(data) => {
@@ -40,7 +44,7 @@ function updateGoToOfficialState() {
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
 	const url = new URL(tabs[0].url)
 	const refreshBtn = document.getElementById('refresh-btn')
-	refreshBtn.disabled = !relevantDomains.includes(url.hostname)
+	refreshBtn.disabled = !relevantDomains.includes(url.hostname) || isApiRoute(url)
 })
 
 document.getElementById('refresh-btn').addEventListener('click', () => {
@@ -48,7 +52,7 @@ document.getElementById('refresh-btn').addEventListener('click', () => {
 		const url = new URL(tabs[0].url)
 		const preferredFrontEnd = document.getElementById('fe-select').value
 
-		if (relevantDomains.includes(url.hostname)) {
+		if (relevantDomains.includes(url.hostname) && !isApiRoute(url)) {
 			url.hostname = `suttacentral${preferredFrontEnd}`
 			chrome.tabs.update(tabs[0].id, { url: url.href.replace(/\/$/, '') })
 			window.close()
