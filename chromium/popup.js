@@ -30,14 +30,8 @@ document.getElementById('auto-redirect').addEventListener('change', (e) => {
 function updateGoToOfficialState() {
 	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
 		const url = new URL(tabs[0].url)
-		const autoRedirect = document.getElementById('auto-redirect')
 		const goToOfficialBtn = document.getElementById('go-to-official')
-
-		if (altFrontends.includes(url.hostname)) {
-			goToOfficialBtn.disabled = autoRedirect.checked
-		} else {
-			goToOfficialBtn.disabled = true
-		}
+		goToOfficialBtn.disabled = !altFrontends.includes(url.hostname)
 	})
 }
 
@@ -66,8 +60,20 @@ document.getElementById('go-to-official').addEventListener('click', () => {
 
 		if (altFrontends.includes(url.hostname)) {
 			url.hostname = 'suttacentral.net'
-			chrome.tabs.update(tabs[0].id, { url: url.href.replace(/\/$/, '') })
-			window.close()
+			const newUrl = url.href.replace(/\/$/, '')
+
+			if (document.getElementById('auto-redirect').checked) {
+				chrome.runtime.sendMessage(
+					{ action: 'overrideOnce', tabId: tabs[0].id },
+					() => {
+						chrome.tabs.update(tabs[0].id, { url: newUrl })
+						window.close()
+					},
+				)
+			} else {
+				chrome.tabs.update(tabs[0].id, { url: newUrl })
+				window.close()
+			}
 		}
 	})
 })
