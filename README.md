@@ -4,7 +4,7 @@
 
 # SuttaCentral Redirect
 
-A simple browser extension to switch between `suttacentral.net` and `suttacentral.now` or `suttacentral.express` — with optional auto-redirect.
+A simple browser extension to switch between `suttacentral.net` and `.now` or `.express` — with optional auto-redirect.
 
 [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/noaddajdfegpjfgpmbhcbahofgkceaan?style=for-the-badge&logo=googlechrome)](https://chromewebstore.google.com/detail/noaddajdfegpjfgpmbhcbahofgkceaan)
 [![Mozilla Add-on Version](https://img.shields.io/amo/v/suttacentral-redirect?style=for-the-badge&logo=firefox)](https://addons.mozilla.org/firefox/addon/suttacentral-redirect/)
