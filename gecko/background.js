@@ -6,7 +6,7 @@ async function updateRedirectRule() {
 
 	// Remove existing rules first
 	await chrome.declarativeNetRequest.updateDynamicRules({
-		removeRuleIds: [1, 2],
+		removeRuleIds: [1, 2, 3],
 	})
 
 	// Only add rules if auto-redirect is enabled
@@ -40,6 +40,19 @@ async function updateRedirectRule() {
 						resourceTypes: ['main_frame'],
 					},
 				},
+				{
+					// Let links from the alt frontends to .net through (e.g. #sc-redirect)
+					id: 3,
+					priority: 2,
+					action: {
+						type: 'allow',
+					},
+					condition: {
+						urlFilter: '||suttacentral.net',
+						initiatorDomains: ['suttacentral.now', 'suttacentral.express'],
+						resourceTypes: ['main_frame'],
+					},
+				},
 			],
 		})
 	}
@@ -58,7 +71,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		const tabId = message.tabId
 
 		chrome.declarativeNetRequest.updateDynamicRules({
-			removeRuleIds: [1, 2],
+			removeRuleIds: [1, 2, 3],
 		}).then(() => {
 			sendResponse({ ok: true })
 
