@@ -69,6 +69,19 @@ A simple browser extension to switch between `suttacentral.net` and `.now` or `.
 - Install from Firefox Add-ons Store
 - Sign the extension through [addons.mozilla.org](https://addons.mozilla.org/developers/)
 
+## Releasing
+
+Releases are submitted to both stores with [`publish-browser-extension`](https://github.com/aklinker1/publish-browser-extension) (requires Node 22+).
+
+One-time setup: create `.env.submit` with the store API credentials, either by running `npx publish-browser-extension@6.1.1 init` or by filling in a copy of [`.env.submit.example`](.env.submit.example).
+
+For each release:
+
+1. Bump `version` in both `chromium/manifest.json` and `gecko/manifest.json`, and commit
+1. Optionally, add a `git tag` with relevant release information
+1. Run `./release.sh --dry-run` to check the credentials
+1. Run `./release.sh` to zip both extensions into `dist/` and submit them for review
+
 ## License
 
 [AGPL3+](https://www.gnu.org/licenses/agpl-3.0.txt). The logo is from [thesunshade](https://github.com/thesunshade/citation-helper) 🙏
